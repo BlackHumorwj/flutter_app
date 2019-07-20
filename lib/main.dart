@@ -10,31 +10,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //应用的根Widget
     return MaterialApp(
       //为在任务管理窗口中所显示的应用名字
-      title: "flutter",
+      title: "应用的名称",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       //为应用默认显示的界面widget
-      home: MyHomePage(title: "是不是"),
+      home: MyHomePage(title: "title 标题"),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  //可选命名参数方法
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState(){
+    return _MyHomePageState();
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {
+    setState(
+            //调用匿名方法
+            () {
       _counter++;
     });
   }
@@ -60,6 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(
+              child: Text("这是啥"),
+            )
+
           ],
         ),
       ),
